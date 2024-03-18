@@ -1,16 +1,17 @@
 [versions]
 agp = "8.4.0-alpha13"
-kotlin = "1.9.0"
-coreKtx = "1.10.1"
+kotlin = "1.9.22"
+coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.6.1"
-activityCompose = "1.8.0"
-composeBom = "2023.08.00"
+lifecycleRuntimeKtx = "2.7.0"
+activityCompose = "1.8.2"
+composeBom = "2023.10.01"
 immersionbar = "3.2.2"
 appcompat = "1.6.1"
-material = "1.10.0"
+navigation-compose = "2.7.7"
+material-icons = "1.6.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,7 +31,9 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 immersionbar = { module = "com.geyifeng.immersionbar:immersionbar", version.ref = "immersionbar" }
 immersionbar-ktx = { module = "com.geyifeng.immersionbar:immersionbar-ktx", version.ref = "immersionbar" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "material-icons" }
+material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "material-icons" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

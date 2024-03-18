@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">ABuilder</string>
+    <string name="app_name">ABuilder X</string>
+    <string name="text_welcome">欢迎</string>
+    <string name="text_welcome_tips">为极客、为懒人、为你，一切尽在您的Android设备上。</string>
+    <string name="text_statistics_title">ABuilder X 统计</string>
+    <string name="text_statistics_subtitle">允许收集安装指标和设备统计信息（完全匿名）</string>
+    <string name="text_permissions_title">权限</string>
+    <string name="text_permissions_subtitle">ABuilder X 需要以下权限</string>
+    <string name="text_runtime_install_title">运行时安装</string>
+    <string name="text_runtime_install_subtitle">安装开发环境</string>
 </resources>
