@@ -79,6 +79,6 @@ dependencies {
     implementation(libs.immersionbar)
     implementation(libs.immersionbar.ktx)
 
-    implementation("androidx.compose.material:material-icons-core:1.6.3")
-    implementation("androidx.compose.material:material-icons-extended:1.6.3")
+    implementation(libs.material.icons.core)
+    implementation(libs.material.icons.extended)
 }
