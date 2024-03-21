@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "io.lumyuan.abuilder"
-        minSdk = 21
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "0.0.1"
@@ -17,6 +17,18 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
+        }
+    }
+
+    signingConfigs  {
+        create("abuilder-x") {
+            storeFile = file("/signature/abuilder-x.jks")
+            storePassword = "123456"
+            keyAlias = "lumyuan"
+            keyPassword = "123456"
+            enableV1Signing = true
+            enableV2Signing = true
+            enableV3Signing = true
         }
     }
 
@@ -30,6 +42,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("abuilder-x")
         }
     }
     compileOptions {
@@ -39,12 +52,18 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    kotlin {
+        jvmToolchain(17)
+    }
     buildFeatures {
         compose = true
         aidl = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.10"
+    }
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true
     }
     packaging {
         resources {
@@ -56,6 +75,7 @@ android {
 }
 
 dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -75,10 +95,20 @@ dependencies {
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.material.icons.core)
+    implementation(libs.material.icons.extended)
+    implementation(libs.lifecycle.runtime.compose)
+    implementation(libs.lifecycle.viewmodel.compose)
+
+    implementation(project(":templates"))
 
     implementation(libs.immersionbar)
     implementation(libs.immersionbar.ktx)
-
-    implementation(libs.material.icons.core)
-    implementation(libs.material.icons.extended)
+    implementation(libs.xxpermissions)
+    // Desugar
+    coreLibraryDesugaring(libs.desugar)
+    implementation(platform(libs.sora.bom))
+    implementation(libs.sora.editor)
+    implementation(libs.sora.language.textmate)
+    implementation(libs.sora.editor.lsp)
 }

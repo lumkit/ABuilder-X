@@ -12,6 +12,9 @@ immersionbar = "3.2.2"
 appcompat = "1.6.1"
 navigation-compose = "2.7.7"
 material-icons = "1.6.3"
+material = "1.10.0"
+xxpermissions-version = "18.6"
+sora = "0.23.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,7 +37,15 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "material-icons" }
 material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "material-icons" }
-
+desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.0.4" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntimeKtx" }
+lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+xxpermissions = { module = "com.github.getActivity:XXPermissions", version.ref = "xxpermissions-version" }
+sora-bom = { module = "io.github.Rosemoe.sora-editor:bom", version.ref = "sora" }
+sora-editor = { module = "io.github.Rosemoe.sora-editor:editor" }
+sora-language-textmate = { module = "io.github.Rosemoe.sora-editor:language-textmate" }
+sora-editor-lsp = { module = "io.github.Rosemoe.sora-editor:editor-lsp" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

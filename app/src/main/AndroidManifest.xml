@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
     <application
         android:name=".ABuilderApplication"
         android:allowBackup="true"
@@ -35,10 +41,15 @@
         <meta-data
             android:name="android.notch_support"
             android:value="true"/>
+
         <!--适配小米（xiaomi）刘海屏-->
         <meta-data
             android:name="notch.config"
             android:value="portrait|landscape" />
+
+        <meta-data
+            android:name="ScopedStorage"
+            android:value="true" />
 
     </application>
 

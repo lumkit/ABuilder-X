@@ -9,7 +9,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import io.lumyuan.abuilder.common.SharedPreferencesUtil
 import io.lumyuan.abuilder.local.Const
+import io.lumyuan.abuilder.ui.pages.generate.NewProjectScreen
 import io.lumyuan.abuilder.ui.pages.index.IndexScreen
+import io.lumyuan.abuilder.ui.pages.settings.SettingsScreen
 import io.lumyuan.abuilder.ui.pages.welcome.WelcomeScreen
 
 val LocalScreenNavHostController = compositionLocalOf<NavHostController> { error("Not provided.") }
@@ -21,13 +23,13 @@ fun Launcher() {
     CompositionLocalProvider(
         LocalScreenNavHostController provides navHostController
     ) {
-        val startRout = if (SharedPreferencesUtil.load(Const.INITIALIZATION) == null) {
+        val startRoute = if (SharedPreferencesUtil.load(Const.INITIALIZATION) == null) {
             ScreenRoute.WELCOME
         } else {
             ScreenRoute.INDEX
         }
 
-        NavHost(navController = navHostController, startDestination = startRout) {
+        NavHost(navController = navHostController, startDestination = startRoute) {
             composable(ScreenRoute.WELCOME) {
                 WelcomeScreen()
             }
@@ -35,7 +37,13 @@ fun Launcher() {
                 IndexScreen()
             }
             composable(ScreenRoute.TERMINAL) {
-
+                // TODO 一个终端页面
+            }
+            composable(ScreenRoute.SETTINGS) {
+                SettingsScreen()
+            }
+            composable(ScreenRoute.NEW_PROJECT) {
+                NewProjectScreen()
             }
         }
     }
